@@ -2,32 +2,23 @@ package com.datascience.shop.main.entity;
 
 import java.time.LocalDate;
 
-public class Contract {
-    private long contractId;
+public class Contract extends BaseEntity{
     private Basket basket;
     private LocalDate dateBeginContract;
     private LocalDate deadlineContract;
-    private double totalPrice;
-    private boolean paymentReceived;
+    private PaymentsCalendar paymentsCalendar;
     private StatusContract statusContract;
-    private static long idCurrentContract;
 
-    public Contract(Basket basket, LocalDate dateBeginContract, LocalDate deadlineContract, double totalPrice, boolean paymentReceived, StatusContract statusContract) {
-        this.contractId = setContractId();
+    public Contract() {
+    }
+
+    public Contract(Integer id, Basket basket, LocalDate dateBeginContract, LocalDate deadlineContract, PaymentsCalendar paymentsCalendar, StatusContract statusContract) {
+        super(id);
         this.basket = basket;
         this.dateBeginContract = dateBeginContract;
         this.deadlineContract = deadlineContract;
-        this.totalPrice = totalPrice;
-        this.paymentReceived = paymentReceived;
+        this.paymentsCalendar = paymentsCalendar;
         this.statusContract = statusContract;
-    }
-
-    public long getContractId() {
-        return contractId;
-    }
-
-    public long setContractId() {
-        return contractId++;
     }
 
     public Basket getBasket() {
@@ -54,20 +45,12 @@ public class Contract {
         this.deadlineContract = deadlineContract;
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
+    public PaymentsCalendar getPaymentsCalendar() {
+        return paymentsCalendar;
     }
 
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public boolean isPaymentReceived() {
-        return paymentReceived;
-    }
-
-    public void setPaymentReceived(boolean paymentReceived) {
-        this.paymentReceived = paymentReceived;
+    public void setPaymentsCalendar(PaymentsCalendar paymentsCalendar) {
+        this.paymentsCalendar = paymentsCalendar;
     }
 
     public StatusContract getStatusContract() {

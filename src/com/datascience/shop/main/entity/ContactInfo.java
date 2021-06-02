@@ -1,37 +1,37 @@
 package com.datascience.shop.main.entity;
 
-public class ContactInfo {
-    public String contactPersonName;
+import java.time.LocalDate;
+
+public class ContactInfo extends BaseEntity{
+    private String contactPersonName;
     private String phone;
     private String email;
+    private LocalDate dateClosed;
 
-    public ContactInfo(String contactPersonName, String phone, String email) {
+    public ContactInfo() {
+    }
+
+    public ContactInfo(Integer id, String contactPersonName, String phone, String email, LocalDate dateClosed) {
+        super(id);
         this.contactPersonName = contactPersonName;
         this.phone = phone;
         this.email = email;
-    }
-
-    public String getContactPersonName() {
-        return contactPersonName;
+        this.dateClosed = dateClosed;
     }
 
     public void setContactPersonName(String contactPersonName) {
         this.contactPersonName = contactPersonName;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setDateClosed(LocalDate dateClosed) {
+        this.dateClosed = dateClosed;
     }
 }

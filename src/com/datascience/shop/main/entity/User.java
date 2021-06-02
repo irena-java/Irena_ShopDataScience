@@ -1,29 +1,31 @@
 package com.datascience.shop.main.entity;
 
-public class User {
-    private long userId;
+public class User extends BaseEntity{
+    private String name;
     private UserRole userRole;
-    private String clientName;
-    private String clientOkpo;
-    private Country clientCountry;
+    private String clientInn;
+    private String country;
     private ContactInfo contactInfo;
-    private static long idCurrentUser;
 
-    public User(UserRole userRole, String clientName, String clientOkpo, Country clientCountry, ContactInfo contactInfo) {
-        this.userId = setUserId();
+
+    public User() {
+    }
+
+    public User(Integer id, String name, UserRole userRole, String clientInn, String country, ContactInfo contactInfo) {
+        super(id);
+        this.name = name;
         this.userRole = userRole;
-        this.clientName = clientName;
-        this.clientOkpo = clientOkpo;
-        this.clientCountry = clientCountry;
+        this.clientInn = clientInn;
+        this.country = country;
         this.contactInfo = contactInfo;
     }
 
-    public long getUserId() {
-        return userId;
+    public String getName() {
+        return name;
     }
 
-    public long setUserId() {
-        return idCurrentUser++;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public UserRole getUserRole() {
@@ -34,28 +36,20 @@ public class User {
         this.userRole = userRole;
     }
 
-    public String getClientName() {
-        return clientName;
+    public String getClientInn() {
+        return clientInn;
     }
 
-    public void setClientName(String clientName) {
-        this.clientName = clientName;
+    public void setClientInn(String clientInn) {
+        this.clientInn = clientInn;
     }
 
-    public String getClientOkpo() {
-        return clientOkpo;
+    public String getCountry() {
+        return country;
     }
 
-    public void setClientOkpo(String clientOkpo) {
-        this.clientOkpo = clientOkpo;
-    }
-
-    public Country getClientCountry() {
-        return clientCountry;
-    }
-
-    public void setClientCountry(Country clientCountry) {
-        this.clientCountry = clientCountry;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public ContactInfo getContactInfo() {

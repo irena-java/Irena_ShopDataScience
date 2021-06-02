@@ -4,28 +4,21 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Basket {
-    private long idBasket; //?почему должно быть финальным?
+public class Basket extends BaseEntity {
     private LocalDate dateCreateBasket;
     private User client;
     private StatusBasket statusBasket;
-    private List<OrderSegment> orderSegments = new ArrayList<>();
-    private static long idCurrentBasket;
+    private List<Item> items = new ArrayList<>();
 
-    public Basket(LocalDate dateCreateBasket, User client, StatusBasket statusBasket, List<OrderSegment> orderSegments) {
-        this.idBasket = setIdBasket();
+    public Basket() {
+            }
+
+    public Basket(Integer id, LocalDate dateCreateBasket, User client, StatusBasket statusBasket, List<Item> items) {
+        super(id);
         this.dateCreateBasket = dateCreateBasket;
         this.client = client;
         this.statusBasket = statusBasket;
-        this.orderSegments = orderSegments;
-    }
-
-    public long getIdBasket() {
-        return idBasket;
-    }
-
-    public long setIdBasket() {
-        return idCurrentBasket++;
+        this.items = items;
     }
 
     public LocalDate getDateCreateBasket() {
@@ -52,11 +45,11 @@ public class Basket {
         this.statusBasket = statusBasket;
     }
 
-    public List<OrderSegment> getOrderSegments() {
-        return orderSegments;
+    public List<Item> getOrdersItems() {
+        return items;
     }
 
-    public void setOrderSegments(List<OrderSegment> orderSegments) {
-        this.orderSegments = orderSegments;
+    public void setOrdersItems(List<Item> items) {
+        this.items = items;
     }
 }
