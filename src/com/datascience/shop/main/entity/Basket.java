@@ -8,17 +8,17 @@ public class Basket extends BaseEntity {
     private LocalDate dateCreateBasket;
     private User client;
     private StatusBasket statusBasket;
-    private List<Item> items = new ArrayList<>();
+    private List<Item> itemsInBasket = new ArrayList<>();
 
     public Basket() {
             }
 
-    public Basket(Integer id, LocalDate dateCreateBasket, User client, StatusBasket statusBasket, List<Item> items) {
+    public Basket(Integer id, LocalDate dateCreateBasket, User client, StatusBasket statusBasket, List<Item> itemsInBasket) {
         super(id);
         this.dateCreateBasket = dateCreateBasket;
         this.client = client;
         this.statusBasket = statusBasket;
-        this.items = items;
+        this.itemsInBasket = itemsInBasket;
     }
 
     public LocalDate getDateCreateBasket() {
@@ -46,10 +46,10 @@ public class Basket extends BaseEntity {
     }
 
     public List<Item> getOrdersItems() {
-        return items;
+        return itemsInBasket;
     }
 
     public void setOrdersItems(List<Item> items) {
-        this.items = items;
+        this.itemsInBasket = items;
     }
 }

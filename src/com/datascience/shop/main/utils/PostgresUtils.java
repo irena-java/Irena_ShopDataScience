@@ -10,7 +10,7 @@ public class PostgresUtils {
     private static  final String PASSWORD="Nbv29062006";
     private static  final String DB_DRIVER="org.postgresql.Driver";
 
-    public static Connection getConnection() throws SQLException {
+    public static Connection getConnection() throws SQLException,ClassNotFoundException {
         try {
             Class.forName(DB_DRIVER);
         } catch (ClassNotFoundException e) {

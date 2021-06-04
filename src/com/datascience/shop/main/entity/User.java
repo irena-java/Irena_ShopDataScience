@@ -20,9 +20,19 @@ public class User extends BaseEntity{
         this.contactInfo = contactInfo;
     }
 
+    public User(String name, UserRole userRole, String clientInn, String country, ContactInfo contactInfo) {
+        this.name = name;
+        this.userRole = userRole;
+        this.clientInn = clientInn;
+        this.country = country;
+        this.contactInfo = contactInfo;
+    }
+
     public String getName() {
         return name;
     }
+
+
 
     public void setName(String name) {
         this.name = name;
@@ -58,5 +68,27 @@ public class User extends BaseEntity{
 
     public void setContactInfo(ContactInfo contactInfo) {
         this.contactInfo = contactInfo;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "ID='" + super.getId() + '\'' +
+                "name='" + name + '\'' +
+                ", userRole=" + userRole +
+                ", clientInn='" + clientInn + '\'' +
+                ", country='" + country + '\'' +
+                ", contactInfo=" + contactInfo +
+                '}';
+    }
+
+    public String toStringShort() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", userRole=" + userRole +
+                ", clientInn='" + clientInn + '\'' +
+                ", country='" + country + '\'' +
+                ", contactInfo=" + contactInfo.toString() +
+                '}';
     }
 }
